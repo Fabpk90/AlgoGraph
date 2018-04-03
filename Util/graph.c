@@ -6,7 +6,7 @@
 node_t * initGraph(char * filePath)
 {
   FILE *finput = fopen(filePath, "r");
-  int nbSommet = 0;
+  int nbSommet = 0, i = 0;
   node_t * nodes = NULL;
 
 
@@ -14,9 +14,12 @@ node_t * initGraph(char * filePath)
   {
     if(fscanf(finput, "%d\n", &nbSommet))
     {
-      nodes = malloc(sizeof(node_t) * nbSommet);
+      nodes = (node_t*) malloc(sizeof(node_t) * nbSommet);
 
-      printf("%d", nbSommet);
+      for (i = 0; i < nbSommet; i++)
+      {
+        
+      }
     }
   }
 
