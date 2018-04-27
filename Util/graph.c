@@ -3,27 +3,33 @@
 
 #include "graph.h"
 
-node_t * initGraph(char * filePath)
+graph_t * initGraph(char * filePath)
 {
   FILE *finput = fopen(filePath, "r");
-  int nbSommet = 0, i = 0;
-  node_t * nodes = NULL;
-
+  int nbSommet = 0;
+  graph_t * graph = NULL;
 
   if(finput != NULL)
   {
     if(fscanf(finput, "%d\n", &nbSommet))
     {
-      nodes = (node_t*) malloc(sizeof(node_t) * nbSommet);
-
-      for (i = 0; i < nbSommet; i++)
-      {
-        
-      }
+      graph = malloc(sizeof(graph_t));
+      graph->matrixNode = malloc(nbSommet * nbSommet * sizeof(node_t));
+      graph->sizeMatrix = nbSommet;
     }
   }
 
   fclose(finput);
+  return graph;
+}
 
-  return nodes;
+void freeGraph(graph_t * graph)
+{
+  free(graph->matrixNode);
+  free(graph);
+}
+
+node_t * getNodeAt(graph_t * graph, int x, int y)
+{
+ return graph->matrixNode[x * graph->sizeMatrix + y];
 }

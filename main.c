@@ -5,8 +5,15 @@
 
 int main(int argc, char const *argv[])
 {
-  node_t * nodes = initGraph("data.dat");
 
-  free(nodes);
+  /*
+  L'idée c'est donc de faire tourner djikstra et après de faire le chemin inverse du point d'arrivée
+  jusqu'au point de départ
+  */
+  graph_t * graph = initGraph("data.dat");
+
+  getNodeAt(graph, 1, 1);
+
+  freeGraph(graph);
   return 0;
 }
