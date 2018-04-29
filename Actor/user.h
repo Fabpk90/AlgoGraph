@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef USER_H
+#define USER_H
 
 typedef enum ELevel
 {
@@ -8,10 +8,10 @@ typedef enum ELevel
   EXPERT
 }ELevel_t;
 
-typedef struct player
+typedef struct user
 {
   ELevel_t level;
-  
-}player_t;
+
+}user_t;
 
 #endif
