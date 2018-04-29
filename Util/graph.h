@@ -2,6 +2,7 @@
 #define GRAPH_H
 
 #include "../Actor/user.h"
+#include "consts.h"
 
 typedef enum EDiff
 {
@@ -18,16 +19,10 @@ typedef struct arc
   char * name;
 } arc_t;
 
-typedef struct list
-{
-  arc_t * arc;
-  arc_t * next;
-}arclist_t
-
 typedef struct node
 {
   char * name;
-  arclist_t arcs;
+  arc_t arc;
 } node_t;
 
 typedef struct graph
@@ -36,13 +31,27 @@ typedef struct graph
   int sizeMatrix;
 }graph_t;
 
+typedef struct arcAdj
+{
+  uint cost;
+  bool visited;
+}arcAdj_t;
+
+typedef struct matAdj
+{
+  EDiff_t matDiff;
+  arcAdj_t * mat;
+}matAdj_t;
+
 /*
   #nbNode
-  #Node;#neighboor-#diff;
+  #node;#neighboor-#cost-#diff;
 */
 
 //loads the graph struct from the specified file
-graph_t * initGraph(char *filePath);
+graph_t * initGraph(const char *filePath);
+
+matAdj_t * getAdjMat(graph_t * graph, user_t * user);
 
 void freeGraph(graph_t * graph);
 void freeNode(node_t * node);

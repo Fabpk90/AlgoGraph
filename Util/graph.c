@@ -3,10 +3,11 @@
 
 #include "graph.h"
 
-graph_t * initGraph(char * filePath)
+graph_t * initGraph(const char * filePath)
 {
   FILE *finput = fopen(filePath, "r");
-  int nbSommet = 0, x, y;
+  int nbSommet = 0, x, y, iterSommet, sommetArr;
+  char valRead = 0;
   graph_t * graph = NULL;
   node_t * nodeInit;
 
@@ -23,12 +24,27 @@ graph_t * initGraph(char * filePath)
         TODO: faire une fonction add arc pour les node_t, bien set les trucs à NULL
       */
 
+      for(iterSommet = 0; iterSommet < nbSommet; iterSommet++)
+      {
+        fscanf(finput, "%d;", NULL);
+        while(valRead != '\n')
+        {
+          fscanf(finput, "%d-", &sommetArr);
+          if(valRead != 0)
+
+          nodeInit = getNodeAt(graph, iterSommet, sommetArr);
+          fscanf(finput, "%d-%d;", nodeInit->diff)
+
+          fscanf(finput, "%c", &valRead);
+        }
+      }
+
+
       for(x = 0; x < nbSommet; x++)
       {
         for(y = 0; y < nbSommet; y++)
         {
-          nodeInit = getNodeAt(graph, x, y);
-          nodeInit->number = x;
+
         }
       }
     }
@@ -36,6 +52,20 @@ graph_t * initGraph(char * filePath)
 
   fclose(finput);
   return graph;
+}
+
+
+//returns an adjacence matrix to apply djikstra on
+matAdj_t * getAdjMat(graph_t * graph, user_t * user)
+{
+
+}
+
+
+
+node_t * getNodeAt(graph_t * graph, int x, int y)
+{
+ return graph->matrixNode[x * graph->sizeMatrix + y];
 }
 
 void freeGraph(graph_t * graph)
@@ -71,9 +101,4 @@ void freeNode(node_t * node)
     next = index->next;
     free(index);
   }
-}
-
-node_t * getNodeAt(graph_t * graph, int x, int y)
-{
- return graph->matrixNode[x * graph->sizeMatrix + y];
 }
