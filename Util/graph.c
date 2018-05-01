@@ -1,51 +1,71 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include <string.h>
+
 #include "graph.h"
+#include "fileHandler.h"
+
 
 graph_t * initGraph(const char * filePath)
 {
   FILE *finput = fopen(filePath, "r");
-  int nbSommet = 0, x, y, iterSommet, sommetArr;
-  char valRead = 0;
+  int nbSommet = 0, i;
   graph_t * graph = NULL;
-  node_t * nodeInit;
+  arc_t * arcInit;
+  bool end = 0;
+  char read; //used to find end line
 
   if(finput != NULL)
   {
     if(fscanf(finput, "%d\n", &nbSommet))
     {
       graph = malloc(sizeof(graph_t));
-      graph->matrixNode = malloc(nbSommet * nbSommet * sizeof(node_t));
-      graph->sizeMatrix = nbSommet;
+      graph->tabNode = calloc(sizeof(node_t), nbSommet);
+      graph->sizeTab = nbSommet;
+
+      for(i = 0; i < nbSommet; i++)
+      {
+        graph->tabNode[i].arcs = NULL;
+        graph->tabNode[i].cost = -1;
+        graph->tabNode[i].visited = 0;
+      }
 
 
       /*
         TODO: faire une fonction add arc pour les node_t, bien set les trucs à NULL
       */
 
-      for(iterSommet = 0; iterSommet < nbSommet; iterSommet++)
+      for(i = 0; i < nbSommet; i++)
       {
-        fscanf(finput, "%d;", NULL);
-        while(valRead != '\n')
+        end = 0;
+        graph->tabNode[i].name = malloc(sizeof(char) * CONST_NAME_LENGTH);
+        readName(finput, graph->tabNode[i].name);
+        fseek(finput, -1, SEEK_CUR);//resets the cursor correctly
+
+        while(!end)
         {
-          fscanf(finput, "%d-", &sommetArr);
-          if(valRead != 0)
+          //see if end of line
+          fscanf(finput, "%c", &read);
+          if(read != '\n')
+          {
+            arcInit = malloc(sizeof(arc_t));
+            arcInit->name = malloc(sizeof(char) * CONST_NAME_LENGTH);
+            arcInit->next = NULL;
 
-          nodeInit = getNodeAt(graph, iterSommet, sommetArr);
-          fscanf(finput, "%d-%d;", nodeInit->diff)
+            readName(finput, arcInit->name);
+            fscanf(finput, "%d-%d-%d",
+             &arcInit->arrival, &arcInit->cost, &arcInit->diff);
 
-          fscanf(finput, "%c", &valRead);
+            //printf("name %s , arrival %d , cost %d , diff %d\n",
+            //arcInit->name,arcInit->arrival, arcInit->cost, arcInit->diff);
+
+            addArc(&graph->tabNode[i], arcInit);
+          }
+          else //end of line
+            end = 1;
         }
-      }
 
-
-      for(x = 0; x < nbSommet; x++)
-      {
-        for(y = 0; y < nbSommet; y++)
-        {
-
-        }
       }
     }
   }
@@ -55,44 +75,50 @@ graph_t * initGraph(const char * filePath)
 }
 
 
-//returns an adjacence matrix to apply djikstra on
-matAdj_t * getAdjMat(graph_t * graph, user_t * user)
+void addArc(node_t * node, arc_t * arc)
 {
+  arc_t * index;
+  if(node->arcs == NULL)
+    node->arcs = arc;
+  else
+  {
+    index = node->arcs;
 
+    //infs the next free place
+    while(index->next != NULL)
+    {
+      index = index->next;
+    }
+
+    index->next = arc;
+
+  }
 }
 
-
-
-node_t * getNodeAt(graph_t * graph, int x, int y)
+/*node_t * getNodeAt(graph_t * graph, int x, int y)
 {
- return graph->matrixNode[x * graph->sizeMatrix + y];
-}
+ return &graph->matrixNode[x * graph->sizeMatrix + y];
+}*/
 
 void freeGraph(graph_t * graph)
 {
-  int i, j, arc, nbArcs;
-  node_t * node;
+  int i;
 
-  for(i = 0; i < graph->sizeMatrix; i++)
+  for(i = 0; i < graph->sizeTab; i++)
   {
-    for(j = 0; j < graph->sizeMatrix; j++)
-    {
-      freeNode(getNodeAt(graph, i, j));
-    }
+    freeNode(&graph->tabNode[i]);
   }
 
-  free(graph->matrixNode);
+  free(graph->tabNode);
   free(graph);
 }
 
 void freeNode(node_t * node)
 {
-  int nbArcs = node->nbArcs, arc;
-
   arc_t * index;
   arc_t * next;
 
-  next = node->arcs.arc;
+  next = node->arcs;
 
   while(next != NULL)
   {
@@ -101,4 +127,6 @@ void freeNode(node_t * node)
     next = index->next;
     free(index);
   }
+
+  free(node->name);
 }
