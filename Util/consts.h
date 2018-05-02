@@ -3,6 +3,7 @@
 
 #define CONST_NAME_LENGTH 128
 
+#define CONST_INFINITY 999999
 
 typedef unsigned int uint;
 typedef char bool;

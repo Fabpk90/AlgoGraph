@@ -11,7 +11,8 @@ typedef enum ELevel
 typedef struct user
 {
   ELevel_t level;
-
+  int startNode;
+  int arrivalNode;
 }user_t;
 
 #endif

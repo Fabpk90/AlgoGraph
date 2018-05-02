@@ -32,7 +32,6 @@ graph_t * initGraph(const char * filePath)
         graph->tabNode[i].visited = 0;
       }
 
-
       /*
         TODO: faire une fonction add arc pour les node_t, bien set les trucs à NULL
       */

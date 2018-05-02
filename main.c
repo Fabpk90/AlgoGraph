@@ -36,6 +36,40 @@ void initLevel(user_t * user)
   system("clear");
 }
 
+void initTravel(user_t * user, graph_t * graph)
+{
+  int i;
+
+  for(i = 0; i < graph->sizeTab; i++)
+  {
+    printf("%d %s\n", i, graph->tabNode[i].name);
+  }
+  printf("Maintenant choisi ton point de depart\n");
+
+  scanf("%d", &user->startNode);
+
+  if(user->startNode >= 0 && user->startNode < graph->sizeTab)
+  {
+    printf("Maintenant le point d'arrivee\n");
+
+    scanf("%d", &user->arrivalNode);
+
+    if(user->arrivalNode >= 0 && user->arrivalNode < graph->sizeTab
+    && user->arrivalNode != user->startNode)
+    {
+      printf("ok");
+    }
+    else
+    {
+      printf("bad2");
+    }
+  }
+  else
+  {
+    printf("bad");
+  }
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -48,6 +82,7 @@ int main(int argc, char const *argv[])
   user_t * user = malloc(sizeof(user_t));
 
   initLevel(user);
+  initTravel(user, graph);
 
   freeGraph(graph);
   free(user);
