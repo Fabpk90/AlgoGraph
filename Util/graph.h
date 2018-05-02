@@ -10,7 +10,7 @@ typedef struct arc
   unsigned int cost; //cost between this points
   char * name;
 
-  int arrival;
+  int arrival; // the index of the destination
 
   struct arc * next;
 } arc_t;
