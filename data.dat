@@ -10,88 +10,45 @@ R:Piste Rouge
 N:Piste Noire
 P:Remonte Pente
 */
-
-Serre Chevalier;Eftanis-Secours Pointe-0-B;
-Serre Chevalier;Draye-Croisement des Cerfs-0-R;
-Serre Chevalier;Mur Chevalier-Grand Alpe-0-N;
-Serre Chevalier;Vallons-Croisement Bleu-0-B;
-L'Eychauda;Isolée-Croisement du Loup-0-N;
-L'Eychauda;Aile Froide-Fausse du Castor-0-N;
-L'Eychauda;Creux du Loup-Fausse du Castor-0-N;
-Croisement Bleu;Piste Grand Alpe-Grand Alpe-0-R;
-Chute du Loup;Vallons Bis-Grand Alpe-0-B;
-Col de la Ricelle;Bois des Coqs-Lac Gelé-0-R;
-Col de la Ricelle;Petit Alpe-Lac Gelé-0-R;
-Grand Alpe;Vallons Piste-Lac Gelé-0-B;
-Grand Alpe;Bois des Coqs Bis-Lac Gelé-0-R;
-Grand Alpe;Replat-Plat-0-P;
-Grand Alpe;Grand Serre-Serre Chevalier-0-P;
-Lac Gelé;Pente Bois des Coqs-Col de la Ricelle-0-P;
-Lac Gelé;Vallons Long-Triangle-0-B;
-Lac Gelé;Celvan-Aiguille-0-V;
-Lac Gelé;Vallons Long-Lac Bleu-0-B;
-Lac Gelé;Propel-Col du Propel-0-P;
-Avalanche;Stade-Lac Bleu-0-R;
-Avalanche;Celvan-Aiguille-0-V;
-Bleuet;Mélèzes-Zone-0-B;
-Bleuet;Aravet Piste-Aravet-0-B;
-Aravet;Marteau-Aravet Station-0-B;
-Taie;Route Aravet-Aravet Station-0-V;
-Taie;Forêt-Secours Pointe-0-P;
-Aravet Station;Aravet Oeuf-Taie-0-P;
-Chazelay;Fréjus Oeuf-Fréjus-0-P;
-Chazelay;Casse du Boeuf-Info Point-0-P;
-Bez Station;Pontillas-Verte Poule-0-P;
-Croisement;Bez-Bez Station-0-R;
-Croisement;Route Fréjus-Chazelay-0-V;
-Village de Fréjus;Route Fréjus Bis-Croisement-0-V;
-Village de Fréjus;Vallons Siège-Col de la Cucumelle-0-P;
-Col Méa;Chaméant-Chamoix-0-V;
-Col Méa;Pré Jeanne-Chamoix-0-B;
-Col Méa;Pré Jeanne-Pic-0-B;
-Clot Gauthier;Goulet-Chamoix-0-B;
-Clot Gauthier;Gauthier-Fausse de Castor-0-R;
-Clot Gauthier;Super Draye-Restaurant-0-N;
-Chamoix;Méa Clot-Col Méa-0-P;
-Chamoix;Barres-Verte Poule-0-V;
-Chamoix;Barre-Tête Noir-0-V;
-Restaurant;Remonte Clot-Clot Gauthier-0-P;
-Tête Noir;Remonte Barres-Chamoix-0-P;
-Tête Noir;Goulet-Village de Fréjus-0-B;
-Chantemerle;Ratier-Triangle-0-P;
-Chantemerle;Bletonet-Lac Bleu-0-P;
-Triangle;Briance-Double-0-V;
-Triangle;Combes Pente-Arbre Vert-0-P;
-Lac Bleu;Briance-Triangle-0-V;
-Lac Bleu;Luc Alphand-Chantemerle-0-N;
-Double;Briance-Chantemerle-O-V;
-Double;Champcella-Zone-0-P;
-Zone;Luc Alphand-Lac Bleu-0-N;
-Secours Pointe;Echaillon-Restaurant-0-R;
-Secours Pointe;Fangeas-Boucle-0-B;
-Secours Pointe;Combes-Arbre Vert-0-B;
-Croisement des Cerfs;Pylones-Lac Bleu-0-N;
-Croisement des Cerfs;Draye-Avalanche-0-R;
-Croisement des Cerfs;Trois Croix-Grand Alpe-0-V;
-Plat;Grand Serre-Grand Alpe-0-V;
-Fausse de Castor;Dune-Restaurant-0-R;
-Croisement du Loup;Rocher de l'enfer-Restaurant-0-R;
-Aiguille;Celvan-Chantemerle-0-V;
-Aiguille;Aiguillette-Pic du Propel-0-P;
-Champs;Marteau-Bleuet-0-B;
-Champs;Stade-Aravet-0-R;
-Info Point;Casse du Boeuf Noir-Chazelay-0-N;
-Info Point;Bez Rouge-Croisement-0-R;
-Fréjus;Crètes-Pic-0-P;
-Fréjus;Lacets-Croisement-0-R;
-Verte Poule;Barres-Tête Noir-0-V;
-Col de la Cucumelle;Cucumelle-Village de Fréjus-0-R;
-Boucle;Alpage-Champs-0-B;
-Boucle;Alpage Bis-Info Point-0-B;
-Arbre Vert;Combes-Grand Alpe-0-B;
-Arbre Vert;Forêt-Champs-0-B;
-Pic du Propel;Aiguillette-Aiguille-0-R;
-Col du Propel;Cabane du Berger-Lac Gelé-0-N;
-Col du Propel;Myrtilles-Lac Gelé-0-B;
-Col du Propel;Saludes-Lac Gelé-0-R;
-Col du Propel;Saludes-Aiguille-o-R;
+40
+Serre Chevalier;Eftanis-Secours Pointe-0-B;Draye-Croisement des Cerfs-0-R;Mur Chevalier-Grand Alpe-0-N;Vallons-Croisement Bleu-0-B
+L'Eychauda;Isolee-Croisement du Loup-0-N;Aile Froide-Fausse du Castor-0-N;Creux du Loup-Fausse du Castor-0-N
+Croisement Bleu;Piste Grand Alpe-Grand Alpe-0-R
+Chute du Loup;Vallons Bis-Grand Alpe-0-B
+Col de la Ricelle;Bois des Coqs-Lac Gele-0-R;Petit Alpe-Lac Gele-0-R
+Grand Alpe;Vallons Piste-Lac Gele-0-B;Bois des Coqs Bis-Lac Gele-0-R;Replat-Plat-0-P;Grand Serre-Serre Chevalier-0-P
+Lac Gele;Pente Bois des Coqs-Col de la Ricelle-0-P;Vallons Long-Triangle-0-B;Celvan-Aiguille-0-V;Vallons Long-Lac Bleu-0-B;Propel-Col du Propel-0-P
+Avalanche;Stade-Lac Bleu-0-R;Celvan-Aiguille-0-V
+Bleuet;Melezes-Zone-0-B;Aravet Piste-Aravet-0-B
+Aravet;Marteau-Aravet Station-0-B
+Taie;Route Aravet-Aravet Station-0-V;Foret-Secours Pointe-0-P
+Aravet Station;Aravet Oeuf-Taie-0-P
+Chazelay;Frejus Oeuf-Frejus-0-P;Casse du Boeuf-Info Point-0-P
+Bez Station;Pontillas-Verte Poule-0-P
+Croisement;Bez-Bez Station-0-R;Route Frejus-Chazelay-0-V
+Village de Frejus;Route Frejus Bis-Croisement-0-V;Vallons Siege-Col de la Cucumelle-0-P
+Col Mea;Chameant-Chamoix-0-V;Pre Jeanne-Chamoix-0-B;Pre Jeanne-Pic-0-B
+Clot Gauthier;Goulet-Chamoix-0-B;Gauthier-Fausse de Castor-0-R;Super Draye-Restaurant-0-N
+Chamoix;Mea Clot-Col Mea-0-P;Barres-Verte Poule-0-V;Barre-Tete Noir-0-V
+Restaurant;Remonte Clot-Clot Gauthier-0-P
+Tete Noir;Remonte Barres-Chamoix-0-P;Goulet-Village de Frejus-0-B
+Chantemerle;Ratier-Triangle-0-P;Bletonet-Lac Bleu-0-P
+Triangle;Briance-Double-0-V;Combes Pente-Arbre Vert-0-P
+Lac Bleu;Briance-Triangle-0-V;Luc Alphand-Chantemerle-0-N
+Double;Briance-Chantemerle-O-V;Champcella-Zone-0-P
+Zone;Luc Alphand-Lac Bleu-0-N
+Secours Pointe;Echaillon-Restaurant-0-R;Fangeas-Boucle-0-B;Combes-Arbre Vert-0-B
+Croisement des Cerfs;Pylones-Lac Bleu-0-N;Draye-Avalanche-0-R;Trois Croix-Grand Alpe-0-V
+Plat;Grand Serre-Grand Alpe-0-V
+Fausse de Castor;Dune-Restaurant-0-R
+Croisement du Loup;Rocher de l'enfer-Restaurant-0-R
+Aiguille;Celvan-Chantemerle-0-V;Aiguillette-Pic du Propel-0-P
+Champs;Marteau-Bleuet-0-B;Stade-Aravet-0-R
+Info Point;Casse du Boeuf Noir-Chazelay-0-N;Bez Rouge-Croisement-0-R
+Frejus;Cretes-Pic-0-P;Lacets-Croisement-0-R
+Verte Poule;Barres-Tete Noir-0-V
+Col de la Cucumelle;Cucumelle-Village de Frejus-0-R
+Boucle;Alpage-Champs-0-B;Alpage Bis-Info Point-0-B
+Arbre Vert;Combes-Grand Alpe-0-B;Foret-Champs-0-B
+Pic du Propel;Aiguillette-Aiguille-0-R
+Col du Propel;Cabane du Berger-Lac Gele-0-N;Myrtilles-Lac Gele-0-B;Saludes-Lac Gele-0-R;Saludes-Aiguille-o-R
