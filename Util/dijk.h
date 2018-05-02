@@ -7,6 +7,7 @@ typedef struct dijNode
 {
   int cost;// -1 == infinity
   node_t * father;
+  arc_t * lineUsed; // for printing the path
 }dijNode_t;
 
 void findShortestPath(user_t * user, graph_t * graph);

@@ -14,19 +14,30 @@ void findShortestPath(user_t * user, graph_t * graph)
   */
 
   /*
-    Si le noeud analisé est la destination, on s'arrête
+    Si le noeud analisé est la destination, on s'arrête, NON!
+    l'algo doit faire tous les noeuds!
   */
 
   dijNode_t * tabNode = malloc(sizeof(dijNode_t) * graph->sizeTab);
+  //used for knowing which nodes have been visited
+  int * checked = calloc(sizeof(int), graph->sizeTab);
 
   for(i = 0; i < graph->sizeTab; i++)
   {
     tabNode[i].cost = -1;
     tabNode[i].father = NULL;
+    tabNode[i].lineUsed = NULL;
   }
 
 
+
   free(tabNode);
+  free(checked);
+}
+
+void updateNeighboors(node_t * node, dijNode_t * tabNode)
+{
+
 }
 
 int getMin(dijNode_t * tab, int size)
@@ -43,4 +54,14 @@ int getMin(dijNode_t * tab, int size)
   }
 
   return indexMin;
+}
+
+int getRealTime(EDiff_t diff, arc_t * arc)
+{
+  int cost = 0;
+
+  //get le vrai temps à chaque fois
+  //TODO: avoir un truc qui marche pour avant manger au moins
+
+  return cost;
 }

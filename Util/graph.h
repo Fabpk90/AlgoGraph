@@ -9,14 +9,15 @@ typedef struct arc
   EDiff_t diff; //stores the difficulty of the line
   unsigned int cost; //cost between this points
   char * name;
-
-  int arrival; // the index of the destination
+  int indexStart;
+  int indexArrival; // the index of the destination
 
   struct arc * next;
 } arc_t;
 
 typedef struct node
 {
+  int index;
   char * name;
   arc_t * arcs;
   bool visited;
@@ -38,8 +39,6 @@ graph_t * initGraph(const char *filePath);
 
 void freeGraph(graph_t * graph);
 void freeNode(node_t * node);
-
-unsigned int getTimeTo(arc_t * arc, user_t * user);
 
 void addArc(node_t * node, arc_t * arc);
 

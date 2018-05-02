@@ -9,7 +9,6 @@ void readName(FILE* fin, char * str)
   while(ok)
   {
     fscanf(fin, "%c", &read);
-    //printf("%c ", read);
     if(read != ';' && read != '-')
     {
       str[totalRead] = read;

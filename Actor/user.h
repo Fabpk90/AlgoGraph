@@ -3,7 +3,7 @@
 
 typedef enum ELevel
 {
-  NEWBIE,
+  NEWBIE = 0,
   INTERMEDIATE,
   EXPERT
 }ELevel_t;

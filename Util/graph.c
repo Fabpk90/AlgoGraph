@@ -27,6 +27,7 @@ graph_t * initGraph(const char * filePath)
 
       for(i = 0; i < nbSommet; i++)
       {
+        graph->tabNode[i].index = i;
         graph->tabNode[i].arcs = NULL;
         graph->tabNode[i].cost = -1;
         graph->tabNode[i].visited = 0;
@@ -53,14 +54,16 @@ graph_t * initGraph(const char * filePath)
             arcInit->name = malloc(sizeof(char) * CONST_NAME_LENGTH);
             arcInit->next = NULL;
 
+            arcInit->indexStart = i;
+
             readName(finput, arcInit->name);
             fscanf(finput, "%d-%d-%c",
-             &arcInit->arrival, &arcInit->cost, &diff);
+             &arcInit->indexArrival, &arcInit->cost, &diff);
 
             arcInit->diff = getDiffFromChar(diff);
 
-            printf("name %s , arrival %d , cost %d , diff %d\n",
-            arcInit->name,arcInit->arrival, arcInit->cost, arcInit->diff);
+            //printf("name %s , arrival %d , cost %d , diff %d\n",
+            //arcInit->name,arcInit->indexArrival, arcInit->cost, arcInit->diff);
 
             addArc(&graph->tabNode[i], arcInit);
           }
