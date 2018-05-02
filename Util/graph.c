@@ -15,6 +15,7 @@ graph_t * initGraph(const char * filePath)
   arc_t * arcInit;
   bool end = 0;
   char read; //used to find end line
+  char diff;
 
   if(finput != NULL)
   {
@@ -54,11 +55,13 @@ graph_t * initGraph(const char * filePath)
             arcInit->next = NULL;
 
             readName(finput, arcInit->name);
-            fscanf(finput, "%d-%d-%d",
-             &arcInit->arrival, &arcInit->cost, &arcInit->diff);
+            fscanf(finput, "%d-%d-%c",
+             &arcInit->arrival, &arcInit->cost, &diff);
 
-            //printf("name %s , arrival %d , cost %d , diff %d\n",
-            //arcInit->name,arcInit->arrival, arcInit->cost, arcInit->diff);
+            arcInit->diff = getDiffFromChar(diff);
+
+            printf("name %s , arrival %d , cost %d , diff %d\n",
+            arcInit->name,arcInit->arrival, arcInit->cost, arcInit->diff);
 
             addArc(&graph->tabNode[i], arcInit);
           }

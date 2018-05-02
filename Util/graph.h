@@ -4,14 +4,6 @@
 #include "../Actor/user.h"
 #include "consts.h"
 
-typedef enum EDiff
-{
-  GREEN = 0,
-  BLUE,
-  RED,
-  BLACK
-} EDiff_t;
-
 typedef struct arc
 {
   EDiff_t diff; //stores the difficulty of the line

@@ -1,6 +1,4 @@
 #include "fileHandler.h"
-#include "consts.h"
-
 
 void readName(FILE* fin, char * str)
 {
@@ -20,4 +18,23 @@ void readName(FILE* fin, char * str)
     else
       ok = 0;
   }
+}
+
+EDiff_t getDiffFromChar(char ch)
+{
+  switch(ch)
+  {
+    case 'V':
+      return GREEN;
+    case 'B':
+      return BLUE;
+    case 'R':
+      return RED;
+    case 'N':
+      return BLACK;
+    case 'P':
+      return MECHANIC;
+  }
+
+  return NONE;
 }
