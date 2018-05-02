@@ -10,45 +10,46 @@ R:Piste Rouge
 N:Piste Noire
 P:Remonte Pente
 */
-40
-Serre Chevalier;Eftanis-Secours Pointe-0-B;Draye-Croisement des Cerfs-0-R;Mur Chevalier-Grand Alpe-0-N;Vallons-Croisement Bleu-0-B
-L'Eychauda;Isolee-Croisement du Loup-0-N;Aile Froide-Fausse du Castor-0-N;Creux du Loup-Fausse du Castor-0-N
-Croisement Bleu;Piste Grand Alpe-Grand Alpe-0-R
-Chute du Loup;Vallons Bis-Grand Alpe-0-B
-Col de la Ricelle;Bois des Coqs-Lac Gele-0-R;Petit Alpe-Lac Gele-0-R
-Grand Alpe;Vallons Piste-Lac Gele-0-B;Bois des Coqs Bis-Lac Gele-0-R;Replat-Plat-0-P;Grand Serre-Serre Chevalier-0-P
-Lac Gele;Pente Bois des Coqs-Col de la Ricelle-0-P;Vallons Long-Triangle-0-B;Celvan-Aiguille-0-V;Vallons Long-Lac Bleu-0-B;Propel-Col du Propel-0-P
-Avalanche;Stade-Lac Bleu-0-R;Celvan-Aiguille-0-V
-Bleuet;Melezes-Zone-0-B;Aravet Piste-Aravet-0-B
-Aravet;Marteau-Aravet Station-0-B
-Taie;Route Aravet-Aravet Station-0-V;Foret-Secours Pointe-0-P
-Aravet Station;Aravet Oeuf-Taie-0-P
-Chazelay;Frejus Oeuf-Frejus-0-P;Casse du Boeuf-Info Point-0-P
-Bez Station;Pontillas-Verte Poule-0-P
-Croisement;Bez-Bez Station-0-R;Route Frejus-Chazelay-0-V
-Village de Frejus;Route Frejus Bis-Croisement-0-V;Vallons Siege-Col de la Cucumelle-0-P
-Col Mea;Chameant-Chamoix-0-V;Pre Jeanne-Chamoix-0-B;Pre Jeanne-Pic-0-B
-Clot Gauthier;Goulet-Chamoix-0-B;Gauthier-Fausse de Castor-0-R;Super Draye-Restaurant-0-N
-Chamoix;Mea Clot-Col Mea-0-P;Barres-Verte Poule-0-V;Barre-Tete Noir-0-V
-Restaurant;Remonte Clot-Clot Gauthier-0-P
-Tete Noir;Remonte Barres-Chamoix-0-P;Goulet-Village de Frejus-0-B
-Chantemerle;Ratier-Triangle-0-P;Bletonet-Lac Bleu-0-P
-Triangle;Briance-Double-0-V;Combes Pente-Arbre Vert-0-P
-Lac Bleu;Briance-Triangle-0-V;Luc Alphand-Chantemerle-0-N
-Double;Briance-Chantemerle-O-V;Champcella-Zone-0-P
-Zone;Luc Alphand-Lac Bleu-0-N
-Secours Pointe;Echaillon-Restaurant-0-R;Fangeas-Boucle-0-B;Combes-Arbre Vert-0-B
-Croisement des Cerfs;Pylones-Lac Bleu-0-N;Draye-Avalanche-0-R;Trois Croix-Grand Alpe-0-V
-Plat;Grand Serre-Grand Alpe-0-V
-Fausse de Castor;Dune-Restaurant-0-R
-Croisement du Loup;Rocher de l'enfer-Restaurant-0-R
-Aiguille;Celvan-Chantemerle-0-V;Aiguillette-Pic du Propel-0-P
-Champs;Marteau-Bleuet-0-B;Stade-Aravet-0-R
-Info Point;Casse du Boeuf Noir-Chazelay-0-N;Bez Rouge-Croisement-0-R
-Frejus;Cretes-Pic-0-P;Lacets-Croisement-0-R
-Verte Poule;Barres-Tete Noir-0-V
-Col de la Cucumelle;Cucumelle-Village de Frejus-0-R
-Boucle;Alpage-Champs-0-B;Alpage Bis-Info Point-0-B
-Arbre Vert;Combes-Grand Alpe-0-B;Foret-Champs-0-B
-Pic du Propel;Aiguillette-Aiguille-0-R
-Col du Propel;Cabane du Berger-Lac Gele-0-N;Myrtilles-Lac Gele-0-B;Saludes-Lac Gele-0-R;Saludes-Aiguille-o-R
+41
+Serre Chevalier;Eftanis-26-0-B;Draye-27-0-R;Mur Chevalier-5-0-N;Vallons-2-0-B
+L'Eychauda;Isolee-30-0-N;Aile Froide-29-0-N;Creux du Loup-29-0-N
+Croisement Bleu;Piste Grand Alpe-5-0-R
+Chute du Loup;Vallons Bis-5-0-B
+Col de la Ricelle;Bois des Coqs-6-0-R;Petit Alpe-6-0-R
+Grand Alpe;Vallons Piste-6-0-B;Bois des Coqs Bis-6-0-R;Replat-28-0-P;Grand Serre-0-0-P
+Lac Gele;Pente Bois des Coqs-4-0-P;Vallons Long-22-0-B;Celvan-31-0-V;Vallons Long-23-0-B;Propel-40-0-P
+Avalanche;Stade-23-0-R;Celvan-31-0-V
+Bleuet;Melezes-25-0-B;Aravet Piste-9-0-B
+Aravet;Marteau-11-0-B
+Taie;Route Aravet-11-0-V;Foret-26-0-P
+Aravet Station;Aravet Oeuf-10-0-P
+Chazelay;Frejus Oeuf-34-0-P;Casse du Boeuf-33-0-P
+Bez Station;Pontillas-35-0-P
+Croisement;Bez-13-0-R;Route Frejus-12-0-V
+Village de Frejus;Route Frejus Bis-14-0-V;Vallons Siege-36-0-P
+Col Mea;Chameant-18-0-V;Pre Jeanne-18-0-B;Pre Jeanne-41-0-B
+Clot Gauthier;Goulet-18-0-B;Gauthier-29-0-R;Super Draye-19-0-N
+Chamoix;Mea Clot-16-0-P;Barres-35-0-V;Barre-20-0-V
+Restaurant;Remonte Clot-17-0-P
+Tete Noir;Remonte Barres-18-0-P;Goulet-15-0-B
+Chantemerle;Ratier-22-0-P;Bletonet-23-0-P
+Triangle;Briance-24-0-V;Combes Pente-38-0-P
+Lac Bleu;Briance-22-0-V;Luc Alphand-21-0-N
+Double;Briance-21-O-V;Champcella-25-0-P
+Zone;Luc Alphand-23-0-N
+Secours Pointe;Echaillon-19-0-R;Fangeas-37-0-B;Combes-38-0-B
+Croisement des Cerfs;Pylones-23-0-N;Draye-7-0-R;Trois Croix-5-0-V
+Plat;Grand Serre-5-0-V
+Fausse de Castor;Dune-19-0-R
+Croisement du Loup;Rocher de l'enfer-19-0-R
+Aiguille;Celvan-21-0-V;Aiguillette-39-0-P
+Champs;Marteau-8-0-B;Stade-9-0-R
+Info Point;Casse du Boeuf Noir-12-0-N;Bez Rouge-14-0-R
+Frejus;Cretes-41-0-P;Lacets-14-0-R
+Verte Poule;Barres-20-0-V
+Col de la Cucumelle;Cucumelle-15-0-R
+Boucle;Alpage-32-0-B;Alpage Bis-33-0-B
+Arbre Vert;Combes-5-0-B;Foret-32-0-B
+Pic du Propel;Aiguillette-31-0-R
+Col du Propel;Cabane du Berger-6-0-N;Myrtilles-6-0-B;Saludes-6-0-R;Saludes-31-0-R
+Pic;Sellettes-19-0-B;Cabane-18-0-B
