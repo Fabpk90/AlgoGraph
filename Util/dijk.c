@@ -43,7 +43,6 @@ void findShortestPath(user_t * user, graph_t * graph)
     index = getMin(tabNode, graph->sizeTab, checked);
     if(index != -1)
     {
-      printf("test %d\n", index);
       updateNeighboors(&graph->tabNode[index], tabNode, user);
       checked[index] = 1;
     }
@@ -51,8 +50,14 @@ void findShortestPath(user_t * user, graph_t * graph)
       ok = 1;
   }
 
-  //affiche le parcours
-  printPath(tabNode,graph->sizeTab, user, graph);
+  //parcours  trouvé
+  if(checked[user->arrivalNode])
+  {
+    //affiche le parcours
+    printPath(tabNode,graph->sizeTab, user, graph);
+  }
+  else
+    printf("parcours impossible! \n");
 
   free(tabNode);
   free(checked);
@@ -95,7 +100,6 @@ void printPath(dijNode_t * tabNode, int size, user_t * user, graph_t * graph)
   }
 
   printf("Vous arrivez %s\n", graph->tabNode[user->arrivalNode].name);
-
 
   printf("Temps total estime: %f\n", totalTime);
 

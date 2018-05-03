@@ -60,9 +60,6 @@ graph_t * initGraph(const char * filePath)
 
             arcInit->diff = getDiffFromChar(diff);
 
-            printf("name %s , arrival %d , cost %f , diff %d\n",
-            arcInit->name,arcInit->indexArrival, arcInit->cost, arcInit->diff);
-
             addArc(&graph->tabNode[i], arcInit);
           }
           else //end of line
