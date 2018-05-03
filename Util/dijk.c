@@ -90,7 +90,12 @@ void printPath(dijNode_t * tabNode, int size, user_t * user, graph_t * graph)
   while(pileNext != NULL)
   {
     totalTime += pileNext->node->cost;
-    printf("Tu passera par %s en %f mins\n"
+    if(pileNext->node->lineUsed->diff == MECHANIC)
+      printf("Tu passera par un truc mechanique");
+    else
+      printf("Tu passera par une piste");
+
+    printf(" %s en %f mins\n"
     , pileNext->node->lineUsed->name, pileNext->node->cost);
 
     pileNext = pileNext->next;
