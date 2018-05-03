@@ -5,7 +5,7 @@
 
 void findShortestPath(user_t * user, graph_t * graph)
 {
-  int i;
+  int i, index;
   /*
     Alloue un tableau de tous les sommets, pour avoir les distances
     et les pères,
@@ -29,15 +29,71 @@ void findShortestPath(user_t * user, graph_t * graph)
     tabNode[i].lineUsed = NULL;
   }
 
+  printf("Visited %d", getVisited(checked, graph->sizeTab));
+
+  tabNode[user->startNode].cost = 0;
+  updateNeighboors(&graph->tabNode[user->startNode], tabNode, user);
+  checked[user->startNode] = 1;
+
+  while(getVisited(checked, graph->sizeTab) != graph->sizeTab)
+  {
+    index = getMin(tabNode, graph->sizeTab);
+    updateNeighboors(&graph->tabNode[index], tabNode, user);
+    checked[index] = 1;
+  }
+
+  printPath(tabNode,graph->sizeTab, user);
 
 
   free(tabNode);
   free(checked);
 }
 
-void updateNeighboors(node_t * node, dijNode_t * tabNode)
+void printPath(dijNode_t * tabNode, int size, user_t * user)
 {
+  dijNode_t * index = &tabNode[user->startNode];
 
+  while(index->father == NULL)
+  {
+    
+  }
+}
+
+
+int getVisited(int * tab, int size)
+{
+  int i, visited = 0;
+
+  for(i = 0; i < size; i++)
+  {
+    if(tab[i])
+      visited++;
+  }
+
+  return visited;
+}
+
+void updateNeighboors(node_t * node, dijNode_t * tabNode, user_t * user)
+{
+  int cost;
+  arc_t * arc = node->arcs;
+
+  while(arc != NULL)
+  {
+    cost = getRealTime(user->level, arc);
+
+    if(tabNode[arc->indexArrival].cost == -1
+     || tabNode[node->index].cost + cost
+     < tabNode[arc->indexArrival].cost)
+    {
+      tabNode[arc->indexArrival].father = node;
+      tabNode[arc->indexArrival].lineUsed = arc;
+      tabNode[arc->indexArrival].cost = cost;
+
+      //to stop the loop
+      arc = NULL;
+    }
+  }
 }
 
 int getMin(dijNode_t * tab, int size)
@@ -46,7 +102,8 @@ int getMin(dijNode_t * tab, int size)
 
   for(i = 0; i < size; i++)
   {
-    if(tab[i].cost != -1 && tab[i].cost < min)
+    if(tab[i].cost != -1 && tab[i].cost != 0
+      && tab[i].cost < min)
     {
       min = tab[i].cost;
       indexMin = i;
@@ -56,12 +113,10 @@ int getMin(dijNode_t * tab, int size)
   return indexMin;
 }
 
-int getRealTime(EDiff_t diff, arc_t * arc)
+int getRealTime(ELevel_t level, arc_t * arc)
 {
-  int cost = 0;
+  if(arc->diff == MECHANIC)
+    return arc->cost;
 
-  //get le vrai temps à chaque fois
-  //TODO: avoir un truc qui marche pour avant manger au moins
-
-  return cost;
+  return arc->cost * (level == NEWBIE ? 2 : 1);
 }

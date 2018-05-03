@@ -29,8 +29,6 @@ graph_t * initGraph(const char * filePath)
       {
         graph->tabNode[i].index = i;
         graph->tabNode[i].arcs = NULL;
-        graph->tabNode[i].cost = -1;
-        graph->tabNode[i].visited = 0;
       }
 
       /*
@@ -57,7 +55,7 @@ graph_t * initGraph(const char * filePath)
             arcInit->indexStart = i;
 
             readName(finput, arcInit->name);
-            fscanf(finput, "%d-%d-%c",
+            fscanf(finput, "%d-%f-%c",
              &arcInit->indexArrival, &arcInit->cost, &diff);
 
             arcInit->diff = getDiffFromChar(diff);

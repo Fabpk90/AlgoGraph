@@ -7,7 +7,7 @@
 typedef struct arc
 {
   EDiff_t diff; //stores the difficulty of the line
-  unsigned int cost; //cost between this points
+  float cost; //cost between this points
   char * name;
   int indexStart;
   int indexArrival; // the index of the destination
@@ -20,8 +20,6 @@ typedef struct node
   int index;
   char * name;
   arc_t * arcs;
-  bool visited;
-  int cost; // -1 == infinity
 } node_t;
 
 typedef struct graph
