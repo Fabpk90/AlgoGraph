@@ -55,7 +55,7 @@ graph_t * initGraph(const char * filePath)
             arcInit->indexStart = i;
 
             readName(finput, arcInit->name);
-            fscanf(finput, "%d-%d-%c",
+            fscanf(finput, "%d-%f-%c",
              &arcInit->indexArrival, &arcInit->cost, &diff);
 
             arcInit->diff = getDiffFromChar(diff);
