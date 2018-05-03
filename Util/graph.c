@@ -29,8 +29,6 @@ graph_t * initGraph(const char * filePath)
       {
         graph->tabNode[i].index = i;
         graph->tabNode[i].arcs = NULL;
-        graph->tabNode[i].cost = -1;
-        graph->tabNode[i].visited = 0;
       }
 
       /*

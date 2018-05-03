@@ -20,8 +20,6 @@ typedef struct node
   int index;
   char * name;
   arc_t * arcs;
-  bool visited;
-  int cost; // -1 == infinity
 } node_t;
 
 typedef struct graph
