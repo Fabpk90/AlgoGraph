@@ -23,6 +23,6 @@ void printPath(dijNode_t * tabNode, int size, user_t * user, graph_t * graph);
 
 int getMin(dijNode_t * tab, int size, int * checked);
 int getVisited(int * tab, int size);
-int getRealTime(ELevel_t diff, arc_t * arc);
+float getRealTime(ELevel_t diff, arc_t * arc);
 
 #endif

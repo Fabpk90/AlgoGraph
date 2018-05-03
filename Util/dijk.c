@@ -30,12 +30,14 @@ void findShortestPath(user_t * user, graph_t * graph)
     tabNode[i].lineUsed = NULL;
   }
 
+  //visite le premier d'abord
   printf("Visited %d", getVisited(checked, graph->sizeTab));
 
   tabNode[user->startNode].cost = 0;
   updateNeighboors(&graph->tabNode[user->startNode], tabNode, user);
   checked[user->startNode] = 1;
 
+  //boucle, qui simule vraiment dijkstra
   while(!ok && getVisited(checked, graph->sizeTab) != graph->sizeTab)
   {
     index = getMin(tabNode, graph->sizeTab, checked);
@@ -47,9 +49,9 @@ void findShortestPath(user_t * user, graph_t * graph)
     }
     else
       ok = 1;
-
   }
 
+  //affiche le parcours
   printPath(tabNode,graph->sizeTab, user, graph);
 
   free(tabNode);
@@ -161,7 +163,6 @@ int getMin(dijNode_t * tab, int size, int * checked)
 
   for(i = 0; i < size; i++)
   {
-    printf("check %d cost: %f\n", checked[i], tab[i].cost);
     if(!checked[i] && tab[i].cost > 0
       && tab[i].cost < min)
     {

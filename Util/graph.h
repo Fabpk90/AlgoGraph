@@ -40,7 +40,4 @@ void freeNode(node_t * node);
 
 void addArc(node_t * node, arc_t * arc);
 
-//vu que la matrice est dans un tableau, ça permet l'accès direct
-//node_t * getNodeAt(graph_t * graph, int x, int y);
-
 #endif

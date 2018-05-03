@@ -60,8 +60,8 @@ graph_t * initGraph(const char * filePath)
 
             arcInit->diff = getDiffFromChar(diff);
 
-            //printf("name %s , arrival %d , cost %d , diff %d\n",
-            //arcInit->name,arcInit->indexArrival, arcInit->cost, arcInit->diff);
+            printf("name %s , arrival %d , cost %f , diff %d\n",
+            arcInit->name,arcInit->indexArrival, arcInit->cost, arcInit->diff);
 
             addArc(&graph->tabNode[i], arcInit);
           }
@@ -94,14 +94,8 @@ void addArc(node_t * node, arc_t * arc)
     }
 
     index->next = arc;
-
   }
 }
-
-/*node_t * getNodeAt(graph_t * graph, int x, int y)
-{
- return &graph->matrixNode[x * graph->sizeMatrix + y];
-}*/
 
 void freeGraph(graph_t * graph)
 {
