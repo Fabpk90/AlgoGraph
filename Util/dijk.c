@@ -174,7 +174,7 @@ int getMin(dijNode_t * tab, int size, int * checked)
   return indexMin;
 }
 
-int getRealTime(ELevel_t level, arc_t * arc)
+float getRealTime(ELevel_t level, arc_t * arc)
 {
   if(arc->diff == MECHANIC)
     return arc->cost;
