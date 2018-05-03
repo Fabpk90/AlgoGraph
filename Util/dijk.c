@@ -187,13 +187,13 @@ float getRealTime(ELevel_t level, arc_t * arc)
 
   if(arc->diff==GREEN)
     cost=cost*(level == NEWBIE ? 1.1 : 1);
-  if(arc->diff==BLUE)
+  else if(arc->diff==BLUE)
     cost=cost*(level == NEWBIE ? 1.5 : 1);
-  if(arc->diff==RED)
+  else if(arc->diff==RED)
     cost=cost*(level == NEWBIE ? 2 : 1);
-  if(arc->diff==BLACK)
+  else if(arc->diff==BLACK)
     cost=cost*(level == NEWBIE ? 3 : 1);
-  if(arc->diff == MECHANIC)
+  else
     return arc->cost;
 
   return cost;
