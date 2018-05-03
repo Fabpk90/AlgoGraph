@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "Util/graph.h"
+#include "Util/dijk.h"
 
 void initLevel(user_t * user)
 {
@@ -10,7 +11,7 @@ void initLevel(user_t * user)
 
   while(!ok)
   {
-    printf("Welcome mon ptit gars!\n c'est quoi ton niveau mon beau?\n(0 = Debutant, 1 = intermediaire, 3 = expert)\n");
+    printf("Welcome mon ptit gars!\n c'est quoi ton niveau mon beau?\n(0 = Debutant, 1 = Expert)\n");
 
     scanf("%d", &level);
 
@@ -22,11 +23,6 @@ void initLevel(user_t * user)
       break;
 
       case 1:
-        user->level = INTERMEDIATE;
-        ok = 1;
-      break;
-
-      case 2:
         user->level = EXPERT;
         ok = 1;
       break;
@@ -83,6 +79,8 @@ int main(int argc, char const *argv[])
 
   initLevel(user);
   initTravel(user, graph);
+
+  findShortestPath(user, graph);
 
   freeGraph(graph);
   free(user);
