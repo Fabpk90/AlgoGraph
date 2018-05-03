@@ -13,15 +13,15 @@ typedef struct dijNode
 typedef struct printStruct
 {
   dijNode_t * node;
-  dijNode_t * next;
+  struct printStruct * next;
 }printStruct_t;
 
 void findShortestPath(user_t * user, graph_t * graph);
 void updateNeighboors(node_t * node, dijNode_t * tabNode, user_t * user);
-
+void freePath(printStruct_t * pile);
 void printPath(dijNode_t * tabNode, int size, user_t * user);
 
-int getMin(dijNode_t * tab, int size);
+int getMin(dijNode_t * tab, int size, int * checked);
 int getVisited(int * tab, int size);
 int getRealTime(ELevel_t diff, arc_t * arc);
 

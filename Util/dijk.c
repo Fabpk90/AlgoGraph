@@ -21,6 +21,7 @@ void findShortestPath(user_t * user, graph_t * graph)
   dijNode_t * tabNode = malloc(sizeof(dijNode_t) * graph->sizeTab);
   //used for knowing which nodes have been visited
   int * checked = calloc(sizeof(int), graph->sizeTab);
+  char ok = 0;
 
   for(i = 0; i < graph->sizeTab; i++)
   {
@@ -35,15 +36,21 @@ void findShortestPath(user_t * user, graph_t * graph)
   updateNeighboors(&graph->tabNode[user->startNode], tabNode, user);
   checked[user->startNode] = 1;
 
-  while(getVisited(checked, graph->sizeTab) != graph->sizeTab)
+  while(!ok && getVisited(checked, graph->sizeTab) != graph->sizeTab)
   {
-    index = getMin(tabNode, graph->sizeTab);
-    updateNeighboors(&graph->tabNode[index], tabNode, user);
-    checked[index] = 1;
+    index = getMin(tabNode, graph->sizeTab, checked);
+    if(index != -1)
+    {
+      printf("test %d\n", index);
+      updateNeighboors(&graph->tabNode[index], tabNode, user);
+      checked[index] = 1;
+    }
+    else
+      ok = 1;
+
   }
 
   printPath(tabNode,graph->sizeTab, user);
-
 
   free(tabNode);
   free(checked);
@@ -51,12 +58,56 @@ void findShortestPath(user_t * user, graph_t * graph)
 
 void printPath(dijNode_t * tabNode, int size, user_t * user)
 {
-  dijNode_t * index = &tabNode[user->startNode];
+  dijNode_t * index = &tabNode[user->arrivalNode];
+  printStruct_t * pile = malloc(sizeof(printStruct_t));
+  printStruct_t * pileNext = NULL;
+  float totalTime = 0;
 
-  while(index->father == NULL)
+  pile->node = index;
+  pile->next = NULL;
+
+  index = &tabNode[index->father->index];
+
+  while(index->father != NULL)
   {
-    
+    pileNext = malloc(sizeof(printStruct_t));
+
+    pileNext->node = index;
+    pileNext->next = pile;
+    pile = pileNext;
+
+    index = &tabNode[index->father->index];
+    printf("father %s\n", index->father->name);
   }
+
+  pileNext = pile;
+
+  while(pileNext != NULL)
+  {
+    totalTime += pileNext->node->cost;
+    printf("Tu passera par %s en %f mins\n"
+    , pileNext->node->lineUsed->name, pileNext->node->cost);
+  }
+
+  printf("Temps total: %f\n", totalTime);
+
+  freePath(pile);
+
+}
+
+void freePath(printStruct_t * pile)
+{
+  printStruct_t * index = pile;
+  printStruct_t * next = pile->next;
+
+  while (next != NULL)
+  {
+    free(index);
+    index = next;
+    next = index->next;
+  }
+
+  free(index);
 }
 
 
@@ -75,12 +126,15 @@ int getVisited(int * tab, int size)
 
 void updateNeighboors(node_t * node, dijNode_t * tabNode, user_t * user)
 {
-  int cost;
+  float cost;
   arc_t * arc = node->arcs;
 
   while(arc != NULL)
   {
     cost = getRealTime(user->level, arc);
+
+    //printf("index: %d, costnodearr: %f , cost: %f, costSommet: %f\n",
+    //node->index, tabNode[arc->indexArrival].cost, cost, tabNode[node->index].cost);
 
     if(tabNode[arc->indexArrival].cost == -1
      || tabNode[node->index].cost + cost
@@ -89,20 +143,20 @@ void updateNeighboors(node_t * node, dijNode_t * tabNode, user_t * user)
       tabNode[arc->indexArrival].father = node;
       tabNode[arc->indexArrival].lineUsed = arc;
       tabNode[arc->indexArrival].cost = cost;
-
-      //to stop the loop
-      arc = NULL;
     }
+    else
+      arc = arc->next;
   }
 }
 
-int getMin(dijNode_t * tab, int size)
+int getMin(dijNode_t * tab, int size, int * checked)
 {
   int i = 0, min = CONST_INFINITY, indexMin = -1;
 
   for(i = 0; i < size; i++)
   {
-    if(tab[i].cost != -1 && tab[i].cost != 0
+    printf("check %d cost: %f\n", checked[i], tab[i].cost);
+    if(!checked[i] && tab[i].cost > 0
       && tab[i].cost < min)
     {
       min = tab[i].cost;
