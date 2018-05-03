@@ -12,7 +12,6 @@ void findShortestPath(user_t * user, graph_t * graph)
     à la fin, remonte depuis la destination jusqu'à la source
     la source a comme père NULL
   */
-
   /*
     Si le noeud analisé est la destination, on s'arrête, NON!
     l'algo doit faire tous les noeuds!
@@ -31,8 +30,6 @@ void findShortestPath(user_t * user, graph_t * graph)
   }
 
   //visite le premier d'abord
-  printf("Visited %d", getVisited(checked, graph->sizeTab));
-
   tabNode[user->startNode].cost = 0;
   updateNeighboors(&graph->tabNode[user->startNode], tabNode, user);
   checked[user->startNode] = 1;
