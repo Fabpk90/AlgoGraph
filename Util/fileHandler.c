@@ -17,6 +17,8 @@ void readName(FILE* fin, char * str)
     else
       ok = 0;
   }
+
+  str[totalRead] = '\0';
 }
 
 EDiff_t getDiffFromChar(char ch)
