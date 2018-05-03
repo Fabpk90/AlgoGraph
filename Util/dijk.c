@@ -50,13 +50,13 @@ void findShortestPath(user_t * user, graph_t * graph)
 
   }
 
-  printPath(tabNode,graph->sizeTab, user);
+  printPath(tabNode,graph->sizeTab, user, graph);
 
   free(tabNode);
   free(checked);
 }
 
-void printPath(dijNode_t * tabNode, int size, user_t * user)
+void printPath(dijNode_t * tabNode, int size, user_t * user, graph_t * graph)
 {
   dijNode_t * index = &tabNode[user->arrivalNode];
   printStruct_t * pile = malloc(sizeof(printStruct_t));
@@ -65,6 +65,8 @@ void printPath(dijNode_t * tabNode, int size, user_t * user)
 
   pile->node = index;
   pile->next = NULL;
+
+  printf("Vous partez de %s\n", graph->tabNode[user->startNode].name);
 
   index = &tabNode[index->father->index];
 
@@ -77,7 +79,6 @@ void printPath(dijNode_t * tabNode, int size, user_t * user)
     pile = pileNext;
 
     index = &tabNode[index->father->index];
-    printf("father %s\n", index->father->name);
   }
 
   pileNext = pile;
@@ -87,9 +88,14 @@ void printPath(dijNode_t * tabNode, int size, user_t * user)
     totalTime += pileNext->node->cost;
     printf("Tu passera par %s en %f mins\n"
     , pileNext->node->lineUsed->name, pileNext->node->cost);
+
+    pileNext = pileNext->next;
   }
 
-  printf("Temps total: %f\n", totalTime);
+  printf("Vous arrivez %s\n", graph->tabNode[user->arrivalNode].name);
+
+
+  printf("Temps total estime: %f\n", totalTime);
 
   freePath(pile);
 

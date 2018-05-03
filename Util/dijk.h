@@ -19,7 +19,7 @@ typedef struct printStruct
 void findShortestPath(user_t * user, graph_t * graph);
 void updateNeighboors(node_t * node, dijNode_t * tabNode, user_t * user);
 void freePath(printStruct_t * pile);
-void printPath(dijNode_t * tabNode, int size, user_t * user);
+void printPath(dijNode_t * tabNode, int size, user_t * user, graph_t * graph);
 
 int getMin(dijNode_t * tab, int size, int * checked);
 int getVisited(int * tab, int size);
