@@ -182,8 +182,19 @@ int getMin(dijNode_t * tab, int size, int * checked)
 
 float getRealTime(ELevel_t level, arc_t * arc)
 {
+  float cost;
+  cost=arc->cost;
+
+  if(arc->diff==GREEN)
+    cost=cost*(level == NEWBIE ? 1.1 : 1);
+  if(arc->diff==BLUE)
+    cost=cost*(level == NEWBIE ? 1.5 : 1);
+  if(arc->diff==RED)
+    cost=cost*(level == NEWBIE ? 2 : 1);
+  if(arc->diff==BLACK)
+    cost=cost*(level == NEWBIE ? 3 : 1);
   if(arc->diff == MECHANIC)
     return arc->cost;
 
-  return arc->cost * (level == NEWBIE ? 2 : 1);
+  return cost;
 }
